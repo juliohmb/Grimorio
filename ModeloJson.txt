@@ -1,0 +1,20 @@
+{
+    "magias" : {
+        "titulo" : {
+            "nivel": "nivel",
+            "tempo de conjuracao": "tempo de conjuracao",
+            "alcance": "alcance",
+            "componentes": "componentes",
+            "duracao": "duracao",
+            "descricao": "descricao"
+        },
+        "titulo2" : {
+              "nivel": "nivel",
+              "tempo de conjuracao": "tempo de conjuracao",
+              "alcance": "alcance",
+              "componentes": "componentes",
+              "duracao": "duracao",
+              "descricao": "descricao"
+          }
+    }
+}

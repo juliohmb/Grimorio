@@ -81,16 +81,22 @@ for i in magiasLista:
     titulos.append(titulo[0:len(titulo)-1])
 print(titulos)
 
-for i in magiasLista:
-    nivel = i[1]
-    nivels.append(nivel[0:len(nivel)-1])
-print(nivels)
+#remover nomes errados
+titulos.pop(titulos.index("ESTATÍSTICAS DE OBJETO ANIMADO"))
+titulos.pop(titulos.index("PRECIPITAÇÃO"))
+titulos.pop(titulos.index("TEMPERATURA VENTO"))
 
 for i in magiasTexto:
     recipienteTC = re.findall(r"Tempo de Conjuração: .*?[A-Z]", i, re.MULTILINE | re.DOTALL)
     if recipienteTC != []:
         tempoC.append(recipienteTC[0][0:len(recipienteTC)-3])
 print(tempoC)
+
+for i in magiasTexto:
+    recipienteTC = re.findall(r"[A-Z]*\n.*?\nTempo de Conjuração:", i, re.MULTILINE)
+    if recipienteTC != []:
+        nivels.append(recipienteTC[0][0:len(recipienteTC)-3])
+print(nivels)
 
 for i in magiasTexto:
     recipienteTC = re.findall(r"Alcance: .*?C", i, re.MULTILINE | re.DOTALL)
@@ -105,9 +111,9 @@ for i in magiasTexto:
 print(componentes)
 
 for i in magiasTexto:
-    recipienteTC = re.findall(r"Duração: .*?\n[A-Z]", i, re.MULTILINE | re.DOTALL)
+    recipienteTC = re.findall(r"Duração: .*", i, re.MULTILINE)
     if recipienteTC != []:
-        duracao.append(recipienteTC[0][0:len(recipienteTC)-3])
+        duracao.append(recipienteTC[0])
 print(duracao)
 
 for i in magiasTexto:
@@ -116,13 +122,6 @@ for i in magiasTexto:
         descricao.append(recipienteTC[0][0:len(recipienteTC)-3])
 print(descricao)
 
-for i in range(3):
-    tempoC.append("")
-    alcance.append("")
-    componentes.append("")
-    descricao.append("")
-for i in range(4):
-    duracao.append("")
 
 
 escape_dict = {'\a':r'\a',
@@ -183,13 +182,15 @@ for i in range(len(titulos)):
     jsonString += """\"
         },
         \""""
+jsonString += """\n}
+}"""
 json.write(jsonString)
 
 
-# print(len(titulos))
-# print(len(nivels))
-# print(len(tempoC))
-# print(len(alcance))
-# print(len(componentes))
-# print(len(duracao))
-# print(len(descricao))
+print(len(titulos))
+print(len(nivels))
+print(len(tempoC))
+print(len(alcance))
+print(len(componentes))
+print(len(duracao))
+print(len(descricao))

@@ -58,6 +58,8 @@ duracao = []
 
 descricao = []
 
+recipiente2 = []
+
 for i in txt:
     if i.isupper() and recipiente != []:
         for k in recipiente:
@@ -72,14 +74,14 @@ magiasLista.append(recipiente)
 for k in recipiente:
     texto += k
 magiasTexto.append(texto)
-print(magiasLista)
-print(magiasTexto)
+#print(magiasLista)
+#print(magiasTexto)
 
 
 for i in magiasLista:
     titulo = i[0]
     titulos.append(titulo[0:len(titulo)-1])
-print(titulos)
+#print(titulos)
 
 #remover nomes errados
 titulos.pop(titulos.index("ESTATÍSTICAS DE OBJETO ANIMADO"))
@@ -89,38 +91,48 @@ titulos.pop(titulos.index("TEMPERATURA VENTO"))
 for i in magiasTexto:
     recipienteTC = re.findall(r"Tempo de Conjuração: .*?[A-Z]", i, re.MULTILINE | re.DOTALL)
     if recipienteTC != []:
-        tempoC.append(recipienteTC[0][0:len(recipienteTC)-3])
-print(tempoC)
+        tempoC.append(recipienteTC[0][21:len(recipienteTC)-3])
+#print(tempoC)
 
 for i in magiasTexto:
     recipienteTC = re.findall(r"[A-Z]*\n.*?\nTempo de Conjuração:", i, re.MULTILINE)
     if recipienteTC != []:
-        nivels.append(recipienteTC[0][0:len(recipienteTC)-3])
-print(nivels)
+        indice = -1
+        for j in recipienteTC[0]:
+            if j == '\n':
+                indice = recipienteTC[0].index(j)
+                break
+        nivels.append(recipienteTC[0][indice + 1:len(recipienteTC)-22])
+#print(nivels)
 
 for i in magiasTexto:
     recipienteTC = re.findall(r"Alcance: .*?C", i, re.MULTILINE | re.DOTALL)
     if recipienteTC != []:
-        alcance.append(recipienteTC[0][0:len(recipienteTC)-3])
-print(alcance)
+        alcance.append(recipienteTC[0][9:len(recipienteTC)-3])
+#print(alcance)
 
 for i in magiasTexto:
     recipienteTC = re.findall(r"Componentes: .*?D", i, re.MULTILINE | re.DOTALL)
     if recipienteTC != []:
-        componentes.append(recipienteTC[0][0:len(recipienteTC)-3])
-print(componentes)
+        componentes.append(recipienteTC[0][13:len(recipienteTC)-3])
+#print(componentes)
 
 for i in magiasTexto:
     recipienteTC = re.findall(r"Duração: .*", i, re.MULTILINE)
     if recipienteTC != []:
-        duracao.append(recipienteTC[0])
-print(duracao)
+        duracao.append(recipienteTC[0][9:200])
+#print(duracao)
 
 for i in magiasTexto:
     recipienteTC = re.findall(r"Duração: .*?\n[A-z].*?\n\n", i, re.MULTILINE | re.DOTALL)
     if recipienteTC != []:
-        descricao.append(recipienteTC[0][0:len(recipienteTC)-3])
-print(descricao)
+        indice = -1
+        for j in recipienteTC[0]:
+            if j == '\n':
+                indice = recipienteTC[0].index(j)
+                break
+        descricao.append(recipienteTC[0][indice + 1:len(recipienteTC)-3])
+#print(descricao)
 
 
 
@@ -187,10 +199,10 @@ jsonString += """\n}
 json.write(jsonString)
 
 
-print(len(titulos))
-print(len(nivels))
-print(len(tempoC))
-print(len(alcance))
-print(len(componentes))
-print(len(duracao))
-print(len(descricao))
+# print(len(titulos))
+# print(len(nivels))
+# print(len(tempoC))
+# print(len(alcance))
+# print(len(componentes))
+# print(len(duracao))
+# print(len(descricao))

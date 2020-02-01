@@ -1,0 +1,79 @@
+div.top{
+    width: 80%;
+    margin: auto;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+}
+div.magias{
+    width: 80%;
+    margin: auto;
+    overflow: auto;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+}
+div.magia{
+    width: 48%;
+    float: left;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+    margin: 5px;
+}
+.head{
+    position: relative;
+    border-bottom: black;
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-style: solid;
+}
+.nome{
+    margin-block-end: 0px;
+    margin-block-start: 0px;
+}
+.nivel{
+    margin-block-end: 0px;
+    margin-block-start: 0px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+h3{
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    word-wrap: break-word;
+}
+p{
+    word-wrap: break-word;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+div.descricao{
+    height: 225px;
+    overflow: auto;
+}
+div.tempoDeConjuracao{
+    border-bottom: black;
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-style: solid;
+}
+div.alcance{
+    border-bottom: black;
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-style: solid;
+}
+div.componentes{
+    border-bottom: black;
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-style: solid;
+}
+div.duracao{
+    border-bottom: black;
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-style: solid;
+}

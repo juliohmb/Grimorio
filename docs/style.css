@@ -14,8 +14,14 @@ div.magias{
     border-style: solid;
 }
 div.magia{
-    width: 48%;
+    width: 50%;
     float: left;
+    /* border: black;
+    border-width: 1px;
+    border-style: solid;
+    margin: 5px; */
+}
+div.border{
     border: black;
     border-width: 1px;
     border-style: solid;

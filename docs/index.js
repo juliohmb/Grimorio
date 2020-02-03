@@ -86,6 +86,7 @@ function listarMagias(input, checked){
 function printMagias(copy){
     for(var i in copy){
         var divMagia = document.createElement("div")
+        var divBorder = document.createElement("div")
         var divHead = document.createElement("div")
         var divBody = document.createElement("div")
         var divTempo = document.createElement("div")
@@ -94,6 +95,7 @@ function printMagias(copy){
         var divDuracao = document.createElement("div")
         var divDescricao = document.createElement("div")
         divMagia.className = "magia"
+        divBorder.className = "border"
         divHead.className = "head"
         divBody.className = "body"
         divTempo.className = "tempoDeConjuracao"
@@ -166,8 +168,10 @@ function printMagias(copy){
         divBody.appendChild(divDuracao)
         divBody.appendChild(divDescricao)
 
-        divMagia.appendChild(divHead)
-        divMagia.appendChild(divBody)
+        divMagia.appendChild(divBorder)
+        
+        divBorder.appendChild(divHead)
+        divBorder.appendChild(divBody)
         document.body.querySelector("div.magias").appendChild(divMagia)
     }
 }
